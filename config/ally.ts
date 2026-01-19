@@ -5,13 +5,13 @@ const allyConfig = defineConfig({
   google: services.google({
     clientId: env.get('OAUTH_GOOGLE_CLIENT_ID'),
     clientSecret: env.get('OAUTH_GOOGLE_CLIENT_SECRET'),
-    callbackUrl: '/auth/google/callback',
+    callbackUrl: env.get('APP_URL', 'http://localhost:3333') + '/auth/google/callback',
     scopes: ['openid', 'email', 'profile'],
   }),
   github: services.github({
     clientId: env.get('OAUTH_GITHUB_CLIENT_ID'),
     clientSecret: env.get('OAUTH_GITHUB_CLIENT_SECRET'),
-    callbackUrl: '/auth/github/callback',
+    callbackUrl: env.get('APP_URL', 'http://localhost:3333') + '/auth/github/callback',
     scopes: ['user:email'],
   }),
 })
