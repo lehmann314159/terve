@@ -1,0 +1,32 @@
+# Example Caddyfile configuration for Terve
+# Add this block to your existing Caddyfile on Lightsail
+#
+# Location: /etc/caddy/Caddyfile
+# After editing: sudo systemctl reload caddy
+
+terve.yourdomain.com {
+    # Reverse proxy to the Docker container
+    reverse_proxy localhost:3333
+
+    # Optional: Add compression
+    encode gzip
+
+    # Optional: Set headers
+    header {
+        # Security headers
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+        Referrer-Policy "strict-origin-when-cross-origin"
+
+        # Remove server header
+        -Server
+    }
+
+    # Optional: Logging
+    log {
+        output file /var/log/caddy/terve.log {
+            roll_size 10mb
+            roll_keep 5
+        }
+    }
+}

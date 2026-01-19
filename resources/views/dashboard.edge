@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Terve</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f7fa;
+      min-height: 100vh;
+    }
+    .navbar {
+      background: #003580;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: #fff;
+    }
+    .navbar-user {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logout-btn {
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .welcome {
+      margin-bottom: 2rem;
+    }
+    .welcome h1 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    .welcome p { color: #666; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .card h2 {
+      font-size: 1.25rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .card-link {
+      display: inline-block;
+      background: #003580;
+      color: #fff;
+      padding: 0.625rem 1.25rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .card-link:hover { background: #004494; }
+    .level-badge {
+      display: inline-block;
+      background: #e3f2fd;
+      color: #1976d2;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="/" class="navbar-brand">🇫🇮 Terve</a>
+    <div class="navbar-user">
+      <span>{{ user.name }}</span>
+      <span class="level-badge">{{ user.cefrLevel }}</span>
+      <a href="/auth/logout" class="logout-btn">Logout</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="welcome">
+      <h1>Tervetuloa, {{ user.name }}!</h1>
+      <p>Continue your Finnish learning journey</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">📚</div>
+        <h2>Flashcards</h2>
+        <p>Review vocabulary with spaced repetition to build your Finnish word bank effectively.</p>
+        <a href="/flashcards" class="card-link">Practice Vocabulary</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">✏️</div>
+        <h2>Verb Conjugation</h2>
+        <p>Master Finnish verb types and their conjugation patterns across different tenses.</p>
+        <a href="/verbs" class="card-link">Conjugate Verbs</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🔤</div>
+        <h2>Noun Declension</h2>
+        <p>Practice the 15 Finnish grammatical cases and learn when to use each one.</p>
+        <a href="/nouns" class="card-link">Decline Nouns</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📖</div>
+        <h2>Reading Practice</h2>
+        <p>Read stories tailored to your CEFR level and expand your comprehension skills.</p>
+        <a href="/reading" class="card-link">Read Stories</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📝</div>
+        <h2>Mock Exams</h2>
+        <p>Test your Finnish skills with CEFR-aligned practice exams and track your progress.</p>
+        <a href="/exams" class="card-link">Take an Exam</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
