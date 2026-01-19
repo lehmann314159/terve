@@ -1,6 +1,6 @@
 services:
   terve:
-    build: .
+    image: lehmann314159/terve:latest
     container_name: terve
     restart: unless-stopped
     ports:
