@@ -30,8 +30,9 @@ const IMPORTER = (filePath: string) => {
 
 new Ignitor(APP_ROOT, { importer: IMPORTER })
   .tap((app) => {
-    app.booting(async () => {
+    app.ready(async () => {
       await import('#start/kernel')
+      await import('#start/routes')
     })
     app.listen('SIGTERM', () => app.terminate())
     app.listenIf(app.managedByPm2, 'SIGINT', () => app.terminate())
