@@ -16,11 +16,13 @@
     "migration:rollback": "node ace migration:rollback"
   },
   "imports": {
-    "#controllers/*": "./app/controllers/*.js",
-    "#models/*": "./app/models/*.js",
-    "#services/*": "./app/services/*.js",
-    "#config/*": "./config/*.js",
-    "#start/*": "./start/*.js"
+    "#controllers/*": "./app/controllers/*.ts",
+    "#models/*": "./app/models/*.ts",
+    "#services/*": "./app/services/*.ts",
+    "#exceptions/*": "./app/exceptions/*.ts",
+    "#middleware/*": "./app/middleware/*.ts",
+    "#config/*": "./config/*.ts",
+    "#start/*": "./start/*.ts"
   },
   "dependencies": {
     "@adonisjs/core": "^6.2.0",
