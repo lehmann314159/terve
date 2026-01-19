@@ -17,12 +17,14 @@ RUN npm ci --legacy-peer-deps
 COPY . .
 
 # Build with SWC
-RUN mkdir -p build/app build/bin build/config build/start && \
+RUN mkdir -p build/app build/bin build/config build/start build/database && \
     npx swc ./app -d build/app --strip-leading-paths && \
     npx swc ./bin -d build/bin --strip-leading-paths && \
     npx swc ./config -d build/config --strip-leading-paths && \
     npx swc ./start -d build/start --strip-leading-paths && \
+    npx swc ./database -d build/database --strip-leading-paths && \
     npx swc ./adonisrc.ts -o build/adonisrc.js && \
+    npx swc ./ace -o build/ace.js && \
     cp -r resources build/ && \
     cp -r public build/ && \
     cp package*.json build/
