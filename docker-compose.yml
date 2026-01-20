@@ -1,1 +1,27 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3333:3333"
+    environment:
+      - NODE_ENV=production
+      - HOST=0.0.0.0
+      - PORT=3333
+      - APP_KEY=${APP_KEY}
+      - DB_CONNECTION=better-sqlite
+      - DB_DATABASE=/app/data/db.sqlite3
+      - SESSION_DRIVER=cookie
+      - APP_URL=${APP_URL:-http://localhost:3333}
+      - OAUTH_GOOGLE_CLIENT_ID=${OAUTH_GOOGLE_CLIENT_ID:-}
+      - OAUTH_GOOGLE_CLIENT_SECRET=${OAUTH_GOOGLE_CLIENT_SECRET:-}
+      - OAUTH_GITHUB_CLIENT_ID=${OAUTH_GITHUB_CLIENT_ID:-}
+      - OAUTH_GITHUB_CLIENT_SECRET=${OAUTH_GITHUB_CLIENT_SECRET:-}
+      - CLAUDE_API_KEY=${CLAUDE_API_KEY:-}
+    volumes:
+      - app-data:/app/data
+    restart: unless-stopped
 
+volumes:
+  app-data:
