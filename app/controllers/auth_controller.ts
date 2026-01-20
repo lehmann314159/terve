@@ -40,7 +40,13 @@ export default class AuthController {
     /**
      * Get user info from OAuth provider
      */
-    const socialUser = await social.user()
+    let socialUser
+    try {
+      socialUser = await social.user()
+    } catch (error) {
+      console.error(`OAuth ${provider} error:`, error)
+      throw error
+    }
 
     /**
      * Find or create user
