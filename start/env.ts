@@ -43,16 +43,6 @@ export default await Env.create(new URL('../', import.meta.url), {
 
   /*
   |----------------------------------------------------------
-  | OAuth providers
-  |----------------------------------------------------------
-  */
-  OAUTH_GOOGLE_CLIENT_ID: Env.schema.string.optional(),
-  OAUTH_GOOGLE_CLIENT_SECRET: Env.schema.string.optional(),
-  OAUTH_GITHUB_CLIENT_ID: Env.schema.string.optional(),
-  OAUTH_GITHUB_CLIENT_SECRET: Env.schema.string.optional(),
-
-  /*
-  |----------------------------------------------------------
   | External APIs
   |----------------------------------------------------------
   */

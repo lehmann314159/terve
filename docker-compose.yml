@@ -14,10 +14,6 @@ services:
       - DB_DATABASE=/app/data/db.sqlite3
       - SESSION_DRIVER=cookie
       - APP_URL=${APP_URL:-http://localhost:3333}
-      - OAUTH_GOOGLE_CLIENT_ID=${OAUTH_GOOGLE_CLIENT_ID:-}
-      - OAUTH_GOOGLE_CLIENT_SECRET=${OAUTH_GOOGLE_CLIENT_SECRET:-}
-      - OAUTH_GITHUB_CLIENT_ID=${OAUTH_GITHUB_CLIENT_ID:-}
-      - OAUTH_GITHUB_CLIENT_SECRET=${OAUTH_GITHUB_CLIENT_SECRET:-}
       - CLAUDE_API_KEY=${CLAUDE_API_KEY:-}
     volumes:
       - app-data:/app/data

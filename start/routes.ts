@@ -28,26 +28,23 @@ router.get('/health', async ({ response }) => {
 
 /*
 |--------------------------------------------------------------------------
-| Home
+| Home - redirect to dashboard
 |--------------------------------------------------------------------------
 */
-router.get('/', async ({ view }) => {
-  return view.render('welcome')
+router.get('/', async ({ response }) => {
+  return response.redirect().toRoute('dashboard')
 })
 
 /*
 |--------------------------------------------------------------------------
-| Auth Routes
+| Auth Routes (minimal - just logout)
 |--------------------------------------------------------------------------
 */
-router.group(() => {
-  router.get('/login', [AuthController, 'showLogin']).as('auth.login')
-  router.get('/logout', [AuthController, 'logout']).as('auth.logout')
+router.get('/auth/login', async ({ response }) => {
+  return response.redirect().toRoute('dashboard')
+}).as('auth.login')
 
-  // OAuth routes
-  router.get('/:provider/redirect', [AuthController, 'redirect']).as('auth.redirect')
-  router.get('/:provider/callback', [AuthController, 'callback']).as('auth.callback')
-}).prefix('/auth')
+router.get('/auth/logout', [AuthController, 'logout']).as('auth.logout')
 
 /*
 |--------------------------------------------------------------------------

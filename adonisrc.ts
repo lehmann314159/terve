@@ -37,7 +37,6 @@ export default defineConfig({
     () => import('@adonisjs/shield/shield_provider'),
     () => import('@adonisjs/static/static_provider'),
     () => import('@adonisjs/lucid/database_provider'),
-    () => import('@adonisjs/ally/ally_provider'),
   ],
 
   /*
